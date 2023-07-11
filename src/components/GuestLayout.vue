@@ -1,9 +1,8 @@
 <template>
-    <div>
-        Meals Ingredient
-    </div>
+  Login Page
 </template>
 
 
 <script setup>
+
 </script>
