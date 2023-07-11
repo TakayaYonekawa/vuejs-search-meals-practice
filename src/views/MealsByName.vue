@@ -22,10 +22,11 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "@vue/reactivity";
+import {  ref } from "vue";
 import store from "../store";
 const keyword = ref("");
-const meals = computed(() => store.state.searchMeals);
+const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
     store.dispatch('searchMeals', keyword.value)
