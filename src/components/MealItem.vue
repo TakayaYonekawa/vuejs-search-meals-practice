@@ -15,7 +15,7 @@
         <!-- {{ $filters.truncateWords(meal.strInstructions, 20) }} -->
       </p>
       <div class="flex items-center justify-between">
-        <YouTubeButton :href="meal.strYoutube" />
+        <YoutubeButton :href="meal.strYoutube" />
       </div>
     </div>
   </div>
@@ -23,6 +23,7 @@
 
 
 <script setup>
+import YoutubeButton from './YoutubeButton.vue'
 const {meal} = defineProps({
     meal: {
         required: true,
