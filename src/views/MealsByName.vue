@@ -24,17 +24,7 @@
     </router-link>
       <h3 class="font-bold">{{ meal.strMeal }}</h3>
       <div class="flex justify-between items-center">
-        <a
-          :href="meal.strYoutube"
-          target="_blank"
-          class="px-3 py-2 rounded border-2 text-white border-orange-600 bg-orange-500 hover:bg-orange-600 transition-colors"
-          >Youtube</a
-        >
-        <router-link
-          to="/"
-          class="px-3 py-2 rounded border-2 text-white border-orange-600 bg-orange-500 hover:bg-orange-600 transition-colors"
-          >View</router-link
-        >
+        <YoutubeButton :href="meal.strYoutube"/>
       </div>
     </div>
   </div>
@@ -45,6 +35,7 @@ import { computed } from "@vue/reactivity";
 import { onMounted, ref } from "vue";
 import store from "../store";
 import { useRoute } from "vue-router";
+import YoutubeButton from "../components/YoutubeButton.vue";
 const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
