@@ -9,24 +9,8 @@
     />
   </div>
 
-  <div>
-    <div
-      v-for="meal of meals"
-      :key="meal.idMeal"
-      class="grid grid-cols-1 md:grid-cols-3 gap-5 px-8"
-    >
-    <router-link :to="{name: 'mealDetails', params: {id: meal.idMeal}}">
-      <img
-        :src="meal.strMealThumb"
-        :alt="strMeal"
-        class="rounded-t-xl w-full h-48 object-cover"
-      />
-    </router-link>
-      <h3 class="font-bold">{{ meal.strMeal }}</h3>
-      <div class="flex justify-between items-center">
-        <YoutubeButton :href="meal.strYoutube"/>
-      </div>
-    </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
+    <MealItem v-for="meal of meals" :key="meal.idMeal"></MealItem>
   </div>
 </template>
 
@@ -36,6 +20,7 @@ import { onMounted, ref } from "vue";
 import store from "../store";
 import { useRoute } from "vue-router";
 import YoutubeButton from "../components/YoutubeButton.vue";
+import MealItem from "../components/MealItem.vue";
 const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
